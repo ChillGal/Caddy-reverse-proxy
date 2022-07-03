@@ -1,0 +1,39 @@
+*.jenspot.com {
+        tls {
+                dns cloudflare <API TOKEN HERE>
+        }
+
+        @root host jenspot.com
+        handle @root {
+                reverse_proxy 192.168.0.9:80
+        }
+
+        @links host links.jenspot.com
+        handle @links {
+                reverse_proxy 192.168.0.9:80
+        }
+
+        @blog host blog.jenspot.com
+        handle @blog {
+                reverse_proxy 192.168.0.11:80
+        }
+
+        @status host status.jenspot.com
+        handle @status {
+                reverse_proxy 192.168.0.10:3000
+        }
+
+        @lmao host lmao.jenspot.com
+        handle @lmao {
+                reverse_proxy 192.168.0.14:80
+        }
+
+        @www host www.jenspot.com
+        handle @www {
+                redir https://jenspot.com{uri} permanent
+        }
+        
+        handle {
+                abort
+        }
+}
