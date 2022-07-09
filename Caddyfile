@@ -25,6 +25,11 @@
   handle @lmao {
     reverse_proxy 192.168.0.14:80
   }
+  
+  @nextcloud host cloud.jenspot.com
+  handle @nextcloud { 
+    reverse_proxy 192.168.0.17:80
+  }
 
   @www host www.jenspot.com
   handle @www {
